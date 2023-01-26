@@ -13,17 +13,17 @@ This script is only made and used for sending messages, not receiving.
 
 It is very simple!
 
-- 1. Clone Repos
+1) Clone Repos
 
 `git clone https://github.com/OofySimpsonV3/wmu.git`
 
-- 2. Change file permissions 
+2) Change file permissions 
 
 `cd wmu`
 
 `sudo chmod +x wmu.sh`
 
-- 3. Run!
+3) Run!
 
 `./wmu.sh`
 
