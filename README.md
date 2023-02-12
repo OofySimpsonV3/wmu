@@ -35,6 +35,6 @@ or alternatively...
 
 Once the script is running, you will be prompted to enter a URL.
 
-Paste in your URL and press enter.
+Paste in your webhook URL and press enter.
 
 You will then be able to send messages! :D
