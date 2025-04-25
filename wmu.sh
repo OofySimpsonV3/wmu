@@ -4,15 +4,32 @@
 # Discord Webhook Message Utility
 # Author: OofySimpsonV3#9137
 # Date: 26 Jan 2023
+# Last Update: 26 April 2025
 ##
 
-clear
+shopt -s -o nounset # Report undefined variables
 
-## DEFAULT FALLBACK URL
+## GLOBAL DECLARATIONS
+declare -rx SCRIPT=${0##*/}      # Script name
+declare -rx curl="/usr/bin/curl" # CURL command binary path
+
+## SANITY CHECKS
+if test -z "$BASH" ; then
+    printf "[$SCRIPT:$LINENO] Please run this script with the BASH shell...\n" >&2
+    exit 192
+fi
+
+if test ! -x "$curl" ; then
+    printf "[$SCRIPT:$LINENO] The command $curl is not available. Please modify the curl-path variable (LINE 14) and try again..."
+    exit 192
+fi    
+
+### ------------- CHECKS COMPLETE - SCRIPT START ------------- ###
+
+## DECLARE DEFAULT FALLBACK URL VARIABLE
 furl=''
 
-## COLORS
-
+## DECLARE COLOR-CODE VARIABLES
 Black='\033[0;30m'        # Black
 Red='\033[0;31m'          # Red
 Green='\033[0;32m'        # Green
@@ -22,8 +39,8 @@ Purple='\033[0;35m'       # Purple
 Cyan='\033[0;36m'         # Cyan
 White='\033[0;37m'        # White
 
-## STARTUP FUNCTION
-startup() {
+## START / MENU FUNCTION
+showMenu() {
     echo -e "SYSTEM > ${Green}Discord Webhook Message Utility${White}"
     echo -e "SYSTEM > ${White}Script written by OofySimpsonV3 ${Cyan}(Github)${White}"
     echo -e "SYSTEM > ${Red}WARNING: ${White}Webhooks are ${Yellow}POST ONLY! ${White}There is no way to recieve messages via Discord Webhooks.${White}"
@@ -81,7 +98,7 @@ msgprompt() {
     esac
 }
 
-## COMMANDS ON STARTUP
-
-startup
+## CLEAR TERMINAL, AND CALL FUNCTION(S) TO INITIATE THE PROGRAM
+clear
+showMenu
 msgprompt
