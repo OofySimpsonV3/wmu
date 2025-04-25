@@ -20,7 +20,7 @@ if test -z "$BASH" ; then
 fi
 
 if test ! -x "$curl" ; then
-    printf "[$SCRIPT:$LINENO] The command $curl is not available. Please modify the curl-path variable (LINE 14) and try again..."
+    printf "[$SCRIPT:$LINENO] The command $curl is not available. Please modify the curl-path variable (LINE 14) and try again..." >&2
     exit 192
 fi    
 
